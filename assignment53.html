@@ -1,0 +1,32 @@
+<html>
+    <head>
+    <style>
+
+    </style>
+    </head>
+    <body>
+        <div id="colordisplay" style="background-color: ''; height: 50px; width: 100%;"></div>
+        <h3>Enter values between 0 to 255</h3>
+        <h4>RED :</h4>
+        <input type="number" id="red" placeholder="Enter value for red" >
+        <h4>GREEN :</h4>
+        <input type="number" id="green" placeholder="Enter value for green">
+        <h4>BLUE :</h4>
+        <input type="number" id="blue" placeholder="Enter value for blue" >
+        <br>
+        <br>
+        <input type="button" onclick="colorchange()" value="change">
+        <script>
+            function colorchange(){
+                let r= document.getElementById("red").value;
+                let g= document.getElementById("green").value;
+                let b= document.getElementById("blue").value;
+                let element=document.getElementById("colordisplay");
+                
+                if( r>=0 && r<256 && g>=0 && g<256 && g>=0 && g<256 ){
+                    element.style.backgroundColor = `rgb(${r},${g},${b})`;
+                }
+            }
+        </script>
+    </body>
+</html>

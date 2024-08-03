@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="demo"></p>
+        <p id="demmo"></p>
+        <script>
+            let text = "Love is the best thing in this world.Some found their love and some are still looking for thier love ";
+            let text2 = text.toLowerCase();
+            const A = text2.split(" ");
+            let c= 0;
+            for(let i=0; i<A.length;i++){
+                
+                if(A[i]=="love"){
+                     c=c+1;
+                }
+                }
+                document.getElementById("demo").innerHTML = c;
+            
+        </script>
+    </body>
+</html>

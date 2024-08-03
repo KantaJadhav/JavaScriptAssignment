@@ -1,0 +1,45 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+<p id="mid"></p>
+<p id="slice"></p>
+<p id="s"></p>
+<script>
+    const contries=["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland","Germany","Hungary","Ireland","Japan","Kenya"];
+    let div= (contries.length/2);
+    let div2=parseInt(div);
+    if((contries.length%2)==0){
+     
+          let m1=contries[contries.length/2];
+          let m2=contries[(contries.length/2)-1];
+          document.getElementById("mid").innerHTML="Middle countries are "+ m1 + m2;
+      }
+      else{
+              let m=contries[div2];
+              document.getElementById("mid").innerHTML="Middle country is: "+m;
+      }
+     const A= contries.slice(0,10);
+     document.getElementById("slice").innerHTML="First 10 countries are  "+ A;
+ 
+    const a= contries.map((item)=>{
+        let count =0;
+        
+        for(let i=0;i<item.length;i++){
+
+            if(item.charAt(i)=="i"){
+                count=count+1;
+                }
+           if(count > 1){
+             return item;
+              }
+               
+            }
+         })
+     document.getElementById("s").innerHTML=" Countries with more than one i are: "+ a;
+        
+   
+ </script>
+    </body>
+</html>

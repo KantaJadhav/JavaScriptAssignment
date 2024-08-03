@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body>
+        <div>
+            <p id="print">
+
+
+
+            </p>
+            <button onclick="print()">Print</button>
+        </div>
+        <script>
+            function print(){
+                const Dog ={ name:"Jonty",
+                             legs:"Four",
+                             color:"White",
+                             age: "2years",
+                             bark: bark(),
+                             breed:"somya"
+                }
+                function bark(){
+                    let a="Woof-Woof";
+                    return a;
+                }
+
+                document.getElementById("print").innerHTML=JSON.stringify(Dog);
+            }
+        </script>
+    </body>
+</html>

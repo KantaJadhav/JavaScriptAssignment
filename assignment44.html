@@ -1,0 +1,44 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <script>
+            const shoppingcart=["Milk","Coffee","Tea","Honey"];
+            let Array = shoppingcart;
+            document.getElementById("demo1").innerHTML=  Array;
+            Array.pop();
+            document.getElementById("demo2").innerHTML=" Honey was removed from array :"+  Array;
+
+            let check= Array.includes("Meat");
+            let scheck=Array.includes("Sugar");
+
+        if(check==false){
+                 Array.unshift("Meat");
+        }
+        else{
+            document.getElementById("demo3").innerHTML="Meat has aleready in list";
+        }
+        if(scheck==false){
+                 Array.push("Sugar");
+        }
+        else{
+            document.getElementById("demo4").innerHTML="Sugar has aleready in list";
+        }
+
+            document.getElementById("demo5").innerHTML=  Array ;
+      
+           let a= Array.indexOf("Tea");
+           Array[a]="GreenTea";
+           document.getElementById("demo6").innerHTML="Successfully converted Tea to Green Tea  :"+  Array;
+
+
+        </script>
+    </body>
+</html>

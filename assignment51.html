@@ -1,0 +1,98 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <input type="date" name="date" id="date" size="30"><br>
+        <br>
+        <button onclick="date()">Add</button>
+    </div>
+    <br>
+    <div>
+        <select id="select" onchange="ndate()">
+            <option value="iso"> ISO DATE </option>
+            <option value="long"> LONG DATE </option>
+            <option value="short"> SHORT DATE </option>
+        </select>
+    </div>
+    <div>
+        <br>
+        <h4>Enter the no.of years/months/weeks to be added:</h4>
+        <input type="number" id="num" size="10">
+        <br>
+        <h4>Select one option below: </h4>
+        <select id="select1" onchange="murkhsomeshwar()">
+            <option value="week">WEEK</option>
+            <option value="month">MONTH</option>
+            <option value="year">YEAR</option>
+        </select>
+    </div>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <script>
+
+        function date() {
+            let date = document.getElementById("date").value;
+            document.getElementById("demo1").innerHTML = date;
+        }
+
+        function ndate() {
+            let d = new Date();
+            let msg = document.getElementById("select").value;
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            const options1 = { year: 'numeric', month: '2-digit', day: '2-digit' }
+            switch (msg) {
+                case "iso":
+                    document.getElementById("demo2").innerHTML = d;
+                    break;
+                case "long":
+                    const longdate = new Intl.DateTimeFormat('en-US', options).format(d);
+                    document.getElementById("demo2").innerHTML = longdate;
+                    break;
+                case "short":
+                    const shortdate = d.toLocaleDateString('en-US', options1);
+                    document.getElementById("demo2").innerHTML = shortdate;
+                    break;
+            }
+        }
+        function murkhsomeshwar() {
+            let input = document.getElementById("num").value;
+            let msg = document.getElementById("select1").value;
+            let d = new Date();
+            if (input == "") {
+                alert("please enter number !!!");
+            }
+            else {
+                let nextdate;
+                let futuredate;
+                switch (msg) {
+                    case "week":
+                        nextdate = d.setDate(d.getDate() + (7 * input));
+                        futuredate= d.toLocaleDateString(nextdate);
+                        document.getElementById("demo3").innerHTML = "Next date after " + input + " weeks is " + futuredate;
+                        break;
+                    case "month":
+                        nextdate = d.setDate(d.getDate() + (30 * input));
+                        futuredate=d.toLocaleDateString(nextdate);
+                        document.getElementById("demo3").innerHTML = "Next date after " + input + " months is " + futuredate;
+                        break;
+                    case "year":
+                        nextdate = d.setDate(d.getDate() + (365 * input));
+                        futuredate= d.toLocaleDateString(nextdate);
+                        document.getElementById("demo3").innerHTML = "Next date after " + input + " years is " + futuredate;
+                        break;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

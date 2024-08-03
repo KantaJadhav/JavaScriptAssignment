@@ -1,0 +1,191 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <button onclick="allmethods()">click</button>
+        <h3 id="samepattern"></h3>
+        <P id="one"></P>
+        <h3 id="head"></h3>
+        <P id="getFirstTenCountry"></P>
+        <h3 id="heading"></h3>
+        <P id="getLastTenCountry"></P>
+
+        <P id="sorted"></P>
+
+    </div>
+    <script>
+        function allmethods() {
+            let rizeCountries = [];
+            const countries = [
+                {
+                    name: 'India',
+                    capital: 'Delhi',
+                    population: '2.5crore',
+                    launguage: 'Hindi',
+                    count: 70,
+                },
+                {
+                    name: 'America',
+                    capital: '',
+                    population: '1.7core',
+                    launguage: 'English',
+                    count: 98,
+                },
+                {
+                    name: 'China',
+                    capital: 'Wan',
+                    population: '2.3core',
+                    launguage: 'Chinese',
+                    count: 46,
+                },
+                {
+                    name: 'Pakistan',
+                    capital: 'Islamabad',
+                    population: '1core',
+                    launguage: 'Urdu',
+                    count: 20,
+                },
+                {
+                    name: 'Arab',
+                    capital: 'Dubai',
+                    population: '1.8core',
+                    launguage: 'Arabi',
+                    count: 20,
+                },
+                {
+                    name: 'Iran',
+                    capital: 'iran',
+                    population: '1core',
+                    launguage: 'Urdu',
+                    count: 20,
+                },
+                {
+                    name: 'Finland',
+                    capital: 'denmar',
+                    population: '0.8core',
+                    launguage: 'French',
+                    count: 89,
+                },
+                {
+                    name: 'Canada',
+                    capital: 'canada',
+                    population: '1.4core',
+                    launguage: 'Spanish',
+                    count: 34,
+                },
+                {
+                    name: 'Ireland',
+                    capital: 'ireland',
+                    population: '1.67core',
+                    launguage: 'Spanich',
+                    count: 98,
+                },
+                {
+                    name: 'Ethiopia',
+                    capital: 'ethiopia',
+                    population: '1.99core',
+                    launguage: 'Pourtuguese',
+                    count: 12,
+                },
+                {
+                    name: 'Kenya',
+                    capital: 'kenya',
+                    population: '0.5core',
+                    launguage: 'Swahili',
+                    count: 67,
+                },
+                {
+                    name: 'Bolivia',
+                    capital: 'bolivia',
+                    population: '1.4core',
+                    launguage: 'Arebic',
+                    count: 56,
+                },
+                {
+                    name: 'Albania',
+                    capital: 'albania',
+                    population: '1.7core',
+                    launguage: 'Russian',
+                    count: 45,
+                },
+                {
+                    name: 'Hungary',
+                    capital: 'hungary',
+                    population: '1 core',
+                    launguage: 'Dutch',
+                    count: 35,
+                },
+                {
+                    name: 'Germany',
+                    capital: 'germany',
+                    population: '2.2core',
+                    launguage: 'German',
+                    count: 34,
+                },
+            ];
+
+
+            for (let i = 0; i < countries.length; i++) {
+                if ((countries[i].name).includes("stan") || countries[i].name.includes("land") || countries[i].name.includes("id") || countries[i].name.includes("iland")) {
+                    rizeCountries.push(countries[i].name);
+                }
+            }
+            const heading=document.getElementById("samepattern");
+            heading.textContent="contries with some common pattern:";
+            document.getElementById("one").innerHTML = rizeCountries;
+            tenCountry(countries);
+            lastTenCountries(countries);
+            sortCountries(countries);
+        }
+        function tenCountry(newCountries) {
+            let getFirstTenCountry = [];
+            const heading=document.getElementById("head");
+            heading.textContent="First 10 contries are:"
+            newCountries.filter((item, index) => {
+                if (index < 10) {
+                    getFirstTenCountry.push(item.name);
+                }
+            })
+            document.getElementById("getFirstTenCountry").innerHTML = getFirstTenCountry;
+        }
+
+        function lastTenCountries(newCountries) {
+            const container = document.getElementById('getLastTenCountry');
+            const heading = document.getElementById('heading');
+            heading.textContent = `Last 10 countries are:`;
+             let getLastTenCountry = [];
+            for (let i = newCountries.length - 10; i < newCountries.length; i++) {
+                 getLastTenCountry.push(newCountries[i].name);
+            }
+            container.textContent = `${getLastTenCountry}`;
+        }
+
+        function sortCountries(newCountries) {
+            let sortedCountries = [];
+            newCountries.sort((a, b) => {
+                if (a.count === b.count) {
+                    return ((b.name).localeCompare(a.name));
+                }
+                return b.count - a.count;
+            });
+
+            const container = document.getElementById('sorted');
+            const heading = document.createElement('h3');
+            heading.textContent = "10 most spoken languages are:";
+            container.appendChild(heading);
+            for (let i = 0; i < 10; i++) {
+                const div = document.createElement('div');
+                div.textContent = `{Name:${(newCountries[i].launguage)}, Count:${(newCountries[i].count)}}`;
+                container.appendChild(div);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

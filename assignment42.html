@@ -1,0 +1,43 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="array"></p>
+        <p id="min"></p>
+        <p id="max"></p>
+        <p id="midian"></p>
+        <p id="avg"></p>
+        <p id="range"></p>
+        <p id="com"></p>
+        <script>
+            const ages=[19,22,19,24,20,25,26,24,25,24];
+            const nages=ages.sort();
+            let count=0;
+            document.getElementById("array").innerHTML=nages;
+            document.getElementById("min").innerHTML="Minimum age is: "+ nages[0];
+            document.getElementById("max").innerHTML="Maximum age is: "+ nages[9];
+
+            let m=(nages[nages.length/2]+ nages[(nages.length/2)+1])/2;
+            document.getElementById("midian").innerHTML="Midian of ages is: "+m;
+
+            for(let i=0;i<nages.length;i++){
+                 count=nages[i]+count;
+            }
+            let avg= parseInt(count/nages.length);
+            document.getElementById("avg").innerHTML="Average age is "+ avg;
+
+            document.getElementById("range").innerHTML="Rage of given ages is: "+(nages[9]-nages[0]);
+            let mdif= Math.abs(nages[0] - avg);
+            let madif=nages[9]-avg;
+            if(mdif>madif){
+                document.getElementById("com").innerHTML=" min - avg is greater";
+            }
+            else{
+                document.getElementById("com").innerHTML="max-avg is greater";
+            }
+        </script>
+        
+        
+    </body>
+</html>

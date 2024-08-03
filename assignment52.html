@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <style>
+        form {
+            border: 2px solid black;
+            padding: 15px;
+            width: 400px;
+            height: 400px;
+            margin-left: 10%;
+            margin-top: -32%;
+            text-align: center;
+        }
+
+        #print {
+            border: 2px solid black;
+            padding: 15px;
+            width: 400px;
+            height: 400px;
+            margin-left: 50%;
+            margin-top: 90px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="print">
+        <h3>Name is :</h3>
+        <p id="demo1"></p>
+        <h3>Mobile no is :</h3>
+        <p id="demo2"></p>
+        <h3>Email is :</h3>
+        <p id="demo3"></p>
+        <h3>Password is :</h3>
+        <p id="demo4"></p>
+    </div>
+    <form>
+
+        <h3> NAME </h3>
+        <input type="text" id="inp1" size="30" placeholder="Enter your name">
+        <h3>Mobile No.</h3>
+        <input type="text" id="inp2" size="30" placeholder="Enter your Mobile number">
+        <h3> E-MAIL</h3>
+        <input type="email" id="inp3" size="30" placeholder="Enter your email">
+        <h3> PASSWORD </h3>
+        <input type="password" id="inp4" size="30" placeholder="Enter your password">
+        <br>
+        <br>
+        <input type="button" value="Submit" onclick="check()">
+        <input type="button" value="reset" onclick="reset()">
+    </form>
+
+    <script>
+        function check() {
+            const regexp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            const regexp1=/^[0-9]{10}$/;
+             const regexpname=/^[a-zA-Z\s'-]+$/;
+            let name = document.getElementById("inp1").value;
+            let mono = document.getElementById("inp2").value;
+            let email = document.getElementById("inp3").value;
+            let pass = document.getElementById("inp4").value;
+
+            if (name == "" || name === null) {
+                alert(" name can not be empty or null !!!");
+            }
+            else if (mono == "" || mono === null) {
+                alert(" mobile no. can not be empty or null !!!");
+            }
+
+            else if (email == "" || email === null) {
+                alert(" email can not be empty or null !!!");
+            }
+
+            else if (pass == "" || pass === null) {
+                alert(" password can not be empty or null !!!");
+            }
+            else if ( regexp1.test(mono) ==false ){
+                alert("Mobile no. should be 10 digits only !!!");
+            }
+            else if(regexpname.test(name)==false){
+                alert("Name should contain only letters!!!");
+            }
+
+            else if (regexp.test(pass)) {
+
+                document.getElementById("demo1").innerHTML = " " + name;
+                document.getElementById("demo2").innerHTML = " " + mono;
+                document.getElementById("demo3").innerHTML = " " + email;
+                document.getElementById("demo4").innerHTML = " " + pass;
+            }
+
+            else {
+                alert("password must have minimum one number,lowercase,uppercase letter & 8 characters ");
+            }
+
+        }
+        // let result2=function validatePassword(){
+        //     let pass= document.getElementById("pass").value;
+
+        //     if(!/[a-z]/.test(pass)&&!/A-Z/.test(pass)&&!/0-9/.test(pass)&&pass.length<9 && pass.length>7){
+        //         return false;
+        //     }
+
+        //     else{
+        //         alert("password must have minimum one number,lowercase,uppercase letter & 8 characters ");
+        //     }
+        // }
+        // if (name != "" && mono != "" && email != "" && pass != "") {
+        //     document.getElementById("demo1").innerHTML = " " + name;
+        //     document.getElementById("demo2").innerHTML = " " + mono;
+        //     document.getElementById("demo3").innerHTML = " " + email;
+        //     document.getElementById("demo4").innerHTML = " " + pass;
+        // }
+
+
+
+        function reset() {
+            document.getElementById("inp1").value = "";
+            document.getElementById("inp2").value = "";
+            document.getElementById("inp3").value = "";
+            document.getElementById("inp4").value = "";
+        }
+    </script>
+</body>
+
+</html>

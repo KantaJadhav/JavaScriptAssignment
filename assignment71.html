@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <button id="button" style="padding: 10px;" onclick="find()"> Find </button>
+        <p id="length"></p>
+        <p id="land"></p>
+        <p id="six"></p>
+        <p id="Estart"></p>
+    </div>
+
+    <script>
+
+        function find() {
+            const countries = ["Albania", "Bolivia", "Canada", "Denmark", "Ethiopia", "Finland", "Germany", "Hungary", "Ireland", "Japan", "Kenya"];
+            let count = 0;
+            let contry = [];
+            let ecountry = [];
+            contry = countries.filter((item) => {
+                if (item.length > 7) {
+                    return item;
+                }
+            })
+            document.getElementById("length").innerHTML = "Countries which have length greter than 7 are: " + contry;
+
+            countries.filter((item) => {
+                if (item.includes("land")) {
+                    count++;
+                }
+            })
+
+            if (count == countries.length) {
+                document.getElementById("land").innerHTML = "All countries contais word 'land'!!";
+            }
+            else {
+                document.getElementById("land").innerHTML = "All countries does not contais word 'land'!!";
+            }
+
+            for (let i = 0; i < countries.length; i++) {
+                if (countries[i].length == 6) {
+                    document.getElementById("six").innerHTML = "First country with six letters is :" + countries[i] + " and it's index is " + i;
+                    break;
+                }
+            }
+            ecountry = countries.filter(element => {
+                return element.startsWith("E", 0);
+            })
+
+            document.getElementById("Estart").innerHTML = "Contries that starts with 'E' are :" + ecountry;
+        }
+    </script>
+
+</body>
+
+</html>

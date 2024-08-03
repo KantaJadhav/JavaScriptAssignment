@@ -1,0 +1,48 @@
+<html>
+    <head>
+       <script>
+         
+          function Check(){
+            let D = document.getElementById("day").value;
+            let newD = D.toLowerCase();
+            let Day;
+            if(newD =="sunday"||newD =="monday"||newD =="tuesday"||newD =="wednesday"||newD =="thursday"||newD =="friday"||newD=="saturday"){
+    
+            switch(newD){
+                case "sunday" :
+                  Day="weekend";
+                  break;
+                  case "monday" :
+                  Day="weekday";
+                  break;
+                  case "tuesday" :
+                  Day="weekday";
+                  break;
+                  case "wednesday" :
+                  Day="weekday";
+                  break;
+                  case "thursday" :
+                  Day="weekday";
+                  break;
+                  case "friday":
+                  Day="weekday";
+                  break;
+                  case "saturday" :
+                  Day="weekend";
+                  break;
+            }
+            document.getElementById("demo").innerHTML="Today is "+Day; 
+           }
+           else{
+            document.getElementById("demo").innerHTML="Please enter valid day"
+           }
+        }
+       </script>
+    </head>
+    <body>
+        <h3>enter day:</h3>
+        <input type="text" id="day">
+        <button onclick="Check()"> check</button>
+        <p id="demo"></p>
+    </body>
+</html>
