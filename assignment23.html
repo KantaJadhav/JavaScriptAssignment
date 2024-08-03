@@ -1,0 +1,62 @@
+<html>
+    <head>
+       <script>
+        function Day(){
+            let M = document.getElementById("month").value;
+            let Month =M.toLowerCase();
+            let total;
+            if(Month=="january"||Month=="february"||Month=="march"||Month=="april"||Month=="may"||Month=="june"||Month=="july"||Month=="august"||Month=="september"||Month=="october"||Month=="november"||Month=="december"){
+              switch(Month){
+                
+                case "january":
+                    total=31;
+                    break;
+                case "february":
+                    total=28;
+                    break;
+                case "march":
+                    total=31;
+                    break;  
+                    case "april":
+                    total=30;
+                    break;
+                case "may":
+                    total=31;
+                    break;
+                case "june":
+                    total=30;
+                    break;  
+                    case "july":
+                    total=31;
+                    break;
+                case "august":
+                    total=31;
+                    break;
+                case "september":
+                    total=30;
+                    break;  
+                    case "october":
+                    total=31;
+                    break;
+                case "november":
+                    total=30;
+                    break;
+                case "december":
+                    total=31;
+                    break;        
+              }
+              document.getElementById("demo").innerHTML=Month +" has "+total +" days.";
+            }
+            else{
+                document.getElementById("demo").innerHTML="please enter valid month.";
+                        }
+        }
+       </script>
+    </head>
+    <body>
+        <h5>Enter Month</h5>
+        <input type="text" id="month">
+        <button onclick="Day()">Calculate Days</button>
+        <p id="demo"></p>
+    </body>
+</html>
